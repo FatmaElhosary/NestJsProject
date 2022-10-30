@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
   Req,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { UserService } from './user.service';
@@ -34,8 +35,8 @@ export class UserController {
   }
   //get single user
   @Get('/:userId')
-  getUser(@Param() param: { userId: number }) {
-    return this.userService.show(param);
+  getUser(@Param('userId',ParseIntPipe) userId: number ) {
+    return this.userService.show(userId);
   }
 
   @Delete('/:userId')

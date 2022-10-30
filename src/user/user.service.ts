@@ -14,8 +14,8 @@ export class UserService {
   update(updateUserDto: UpdateUserDto, param: { userId: number }) {
     return { updateUserDto, param };
   }
-  show(param: { userId: number }) {
-    return param;
+  show(userId: number ) {
+    return {userId};
   }
   delete(param: { userId: number }) {
     return param;
